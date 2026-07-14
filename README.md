@@ -91,6 +91,8 @@ Three distinct test strategies are used, matching the three layers of the applic
 
 ## Project Structure
 
+Database schema script: [schema.sql](schema.sql)
+
 ```
 src/
 ├── main/
