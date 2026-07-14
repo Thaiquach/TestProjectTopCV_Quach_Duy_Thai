@@ -23,6 +23,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/form_management_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: appuser
       SPRING_DATASOURCE_PASSWORD: apppassword
+      SPRING_FLYWAY_ENABLED: true
     depends_on:
       - db
 
