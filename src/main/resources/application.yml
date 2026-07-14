@@ -3,9 +3,9 @@ spring:
     name: form-management
 
   datasource:
-    url: jdbc:mysql://localhost:3307/form_management_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
-    username: root
-    password:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3307/form_management_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true}
+    username: ${SPRING_DATASOURCE_USERNAME:appuser}
+    password: ${SPRING_DATASOURCE_PASSWORD:apppassword}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
