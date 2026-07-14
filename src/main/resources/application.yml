@@ -2,20 +2,12 @@ spring:
   application:
     name: form-management
 
-  # =============================================
-  # KẾT NỐI DATABASE - MARIADB (cổng 3307)
-  # createDatabaseIfNotExist=true: Tự tạo DB nếu chưa tồn tại
-  # =============================================
   datasource:
     url: jdbc:mysql://localhost:3307/form_management_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
     username: root
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-  # =============================================
-  # CẤU HÌNH JPA / HIBERNATE
-  # validate: Hibernate chỉ kiểm tra bảng, Flyway sẽ là người tạo bảng
-  # =============================================
   jpa:
     hibernate:
       ddl-auto: update
@@ -25,16 +17,10 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MariaDBDialect
 
-  # =============================================
-  # CẤU HÌNH FLYWAY MIGRATION
-  # =============================================
   flyway:
     enabled: true
     baseline-on-migrate: true
     locations: classpath:db/migration
 
-# =============================================
-# CẤU HÌNH SERVER
-# =============================================
 server:
   port: 8081

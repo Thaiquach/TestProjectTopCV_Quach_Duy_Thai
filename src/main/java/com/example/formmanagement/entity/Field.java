@@ -33,6 +33,6 @@ public class Field {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "form_id")
-    @ToString.Exclude // Tránh bị vòng lặp vô hạn khi toString
+    @ToString.Exclude
     private Form form;
 }

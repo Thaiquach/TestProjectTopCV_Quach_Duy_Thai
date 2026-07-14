@@ -8,5 +8,5 @@ public class SubmissionValueRequest {
     @NotNull(message = "fieldId không được để trống")
     private Long fieldId;
     
-    private String value; // Giá trị do nhân viên nhập vào
+    private String value;
 }

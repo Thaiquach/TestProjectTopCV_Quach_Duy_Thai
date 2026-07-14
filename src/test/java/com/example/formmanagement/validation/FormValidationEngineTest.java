@@ -11,10 +11,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * [Unit Test] Test thuật toán validate động của FieldValidatorEngine.
- * Không cần Spring Context — class này độc lập hoàn toàn.
- */
 class FormValidationEngineTest {
 
     private FieldValidatorEngine validatorEngine;
@@ -23,10 +19,6 @@ class FormValidationEngineTest {
     void setUp() {
         validatorEngine = new FieldValidatorEngine();
     }
-
-    // ================================================================
-    // REQUIRED FIELD
-    // ================================================================
 
     @Test
     @DisplayName("required=true, value rỗng → ném IllegalArgumentException")
@@ -62,10 +54,6 @@ class FormValidationEngineTest {
         assertDoesNotThrow(() -> validatorEngine.validate(field, ""));
     }
 
-    // ================================================================
-    // TEXT
-    // ================================================================
-
     @Test
     @DisplayName("TEXT - Nội dung hợp lệ (≤200 ký tự) → không ném exception")
     void validate_TextField_WithValidValue_ShouldNotThrow() {
@@ -89,10 +77,6 @@ class FormValidationEngineTest {
 
         assertTrue(ex.getMessage().contains("200 ký tự"));
     }
-
-    // ================================================================
-    // NUMBER
-    // ================================================================
 
     @Test
     @DisplayName("NUMBER - Số hợp lệ trong [0, 100] → không ném exception")
@@ -143,10 +127,6 @@ class FormValidationEngineTest {
         assertTrue(ex.getMessage().contains("số hợp lệ"));
     }
 
-    // ================================================================
-    // DATE
-    // ================================================================
-
     @Test
     @DisplayName("DATE - Ngày tương lai hợp lệ → không ném exception")
     void validate_DateField_WithFutureDate_ShouldNotThrow() {
@@ -186,10 +166,6 @@ class FormValidationEngineTest {
         assertTrue(ex.getMessage().contains("YYYY-MM-DD"));
     }
 
-    // ================================================================
-    // COLOR
-    // ================================================================
-
     @Test
     @DisplayName("COLOR - Mã HEX hợp lệ → không ném exception")
     void validate_ColorField_WithValidHex_ShouldNotThrow() {
@@ -213,12 +189,8 @@ class FormValidationEngineTest {
                 () -> validatorEngine.validate(field, "#GGG"));
 
         assertThrows(IllegalArgumentException.class,
-                () -> validatorEngine.validate(field, "FF0000")); // thiếu dấu #
+                () -> validatorEngine.validate(field, "FF0000"));
     }
-
-    // ================================================================
-    // SELECT
-    // ================================================================
 
     @Test
     @DisplayName("SELECT - Giá trị nằm trong options → không ném exception")

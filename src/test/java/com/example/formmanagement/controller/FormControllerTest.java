@@ -23,11 +23,6 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/**
- * [Controller Test] Test tầng Web/API của FormController.
- * Dùng MockMvc standalone (không cần Spring Context) vì Spring Boot 4.x bỏ @WebMvcTest slice.
- * Tương đương Slice Test: chỉ load Controller + Mock Service.
- */
 @ExtendWith(MockitoExtension.class)
 class FormControllerTest {
 
@@ -45,7 +40,6 @@ class FormControllerTest {
 
     @BeforeEach
     void setUp() {
-        // Khởi tạo MockMvc standalone — không cần Spring Context
         mockMvc = MockMvcBuilders.standaloneSetup(formController).build();
         objectMapper = new ObjectMapper();
 

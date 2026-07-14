@@ -222,6 +222,18 @@ docker compose down
 docker compose down -v
 ```
 
+## Git Commit & Push
+
+After verifying the application locally, commit the project with a clear message and push to your Git repository:
+
+```bash
+git add .
+git commit -m "Complete form-management backend with README, Docker, DB migration, and cleanup"
+git push origin main
+```
+
+If your branch is different, replace `main` with the correct branch name.
+
 ---
 
 ## Running Tests

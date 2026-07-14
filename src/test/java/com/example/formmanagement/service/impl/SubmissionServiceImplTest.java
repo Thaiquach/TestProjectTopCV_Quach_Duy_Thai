@@ -25,10 +25,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-/**
- * [Unit Test] Test thuần logic nghiệp vụ của SubmissionServiceImpl.
- * Mock toàn bộ dependencies (repository, validator, formService).
- */
 @ExtendWith(MockitoExtension.class)
 class SubmissionServiceImplTest {
 
@@ -134,7 +130,6 @@ class SubmissionServiceImplTest {
     @DisplayName("submitForm - Form active, dữ liệu hợp lệ → lưu và trả về SubmissionResponse")
     void submitForm_WithValidData_ShouldSaveAndReturnResponse() {
         when(formRepository.findById(1L)).thenReturn(Optional.of(activeForm));
-        // validator không ném exception → hợp lệ
         doNothing().when(validatorEngine).validate(any(Field.class), any());
         when(submissionRepository.save(any(Submission.class))).thenReturn(savedSubmission);
 

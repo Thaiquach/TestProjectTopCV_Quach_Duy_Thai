@@ -22,10 +22,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-/**
- * [Unit Test] Test thuần logic nghiệp vụ của FieldServiceImpl.
- * Không load Spring Context, mock toàn bộ dependencies.
- */
 @ExtendWith(MockitoExtension.class)
 class FieldServiceImplTest {
 

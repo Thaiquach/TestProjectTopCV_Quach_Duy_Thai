@@ -27,10 +27,6 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/**
- * [Controller Test] Test tầng Web/API của SubmissionController.
- * Dùng MockMvc standalone — không cần Spring Context.
- */
 @ExtendWith(MockitoExtension.class)
 class SubmissionControllerTest {
 
@@ -50,7 +46,6 @@ class SubmissionControllerTest {
     void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(submissionController).build();
         objectMapper = new ObjectMapper();
-        // Đăng ký module để Jackson xử lý LocalDateTime
         objectMapper.registerModule(new JavaTimeModule());
 
         activeForm = new FormResponse();
